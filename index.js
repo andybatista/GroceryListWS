@@ -79,7 +79,9 @@ function getItemPriceByName(name) {
  */
 function filterItemsByCategoryId(categoryId) {
 
-  const filterItemsByCategoryId = items.filter()
+  return items.filter(item => item.categoryId === categoryId);
+}
+
   // TODO: use the .filter() method to filter out all items which don't belong the passed in category
 
 
@@ -91,7 +93,12 @@ function logCartItems() {
  * @returns { number } returns the total price of items in your cart
  */
 function calculateTotalCartPrice() {
-    return items.reduce((total, value) => total + value.price, 0)
+   let total = 0;
+   for(let i = 0; i<cart.length; i++){
+    const findCartItem = items.filter(item => item.id === Number (cart[i]));
+    total += findCartItem[0].price;
+   }
+   return total;
 }
   // TODO: Loop through your cart and return the total price of all items in your cart
 
