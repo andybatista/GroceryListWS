@@ -19,20 +19,23 @@ function logItemNames() {
 }
   //TODO: use the .forEach() method to log out the name of each item
 
-/*
-/**
- * @param {number} id
- * @returns {{id: number, name: string, price: number, category: string, inventory: number}} item
- */
-function findItemById(id) {
-    return items.find(item => item.id ===id);
-}
+
+ // @param {number} id
+ // @returns {{id: number, name: string, price: number, category: string, inventory: number}} item
+ 
+function findItemById(id){
+  const foundItem = items.find((currentItem) => {
+      return currentItem.id === id;
+        });
+
+return foundItem;
+      }
   // TODO: Use the .find() method to return the item who's id matches the passed in id
 
 
-/**
- * @returns {items[]} Returns a new array with capitalized names
- */
+
+// @returns {items[]} Returns a new array with capitalized names
+
 function capitalizeNames () {
 return items.map(names => names.name[0].toUpperCase() + names.name.slice(1));
 }
@@ -86,8 +89,14 @@ function filterItemsByCategoryId(categoryId) {
 
 
 function logCartItems() {
-  // TODO: Loop through your cart and use the indexes to log the names of all items in your cart
+  for (let i=0; i< cart.length, i++){
+    const findCartItem = items.filter(item =>
+      item.id === Number(cart[i]));
+      console.log(findCartItem[0].name);
+  }
 }
+  // TODO: Loop through your cart and use the indexes to log the names of all items in your cart
+
 
 /**
  * @returns { number } returns the total price of items in your cart
